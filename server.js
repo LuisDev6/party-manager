@@ -1,21 +1,27 @@
 const express = require('express');
 const path = require('path');
-const { getVoiceMembers } = require('./bot/bot'); // Asegúrate de que esta importación sea válida
+const cors = require('cors'); // Importa cors
+const { getVoiceMembers } = require('./bot/bot');
 const app = express();
+
+// Configurar CORS
+const corsOptions = {
+    origin: 'https://luisdev6.github.io', // Permite solicitudes desde este dominio
+};
+app.use(cors(corsOptions)); // Aplica CORS
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint para obtener los miembros conectados
 app.get('/api/voice-members', (req, res) => {
-    const members = getVoiceMembers(); // Llamamos a la función para obtener los miembros actualizados
-    res.json(members); // Responde con los miembros en formato JSON
+    const members = getVoiceMembers();
+    res.json(members);
 });
 
-// Carga la página principal
-app.get('/', (req, res) => {
+// Sirve el archivo index.html por defecto
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Exporta el app para que Vercel lo maneje
 module.exports = app;
