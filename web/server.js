@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getVoiceMembers } = require('../bot/bot'); // Cambié la importación
+const { getVoiceMembers } = require('../bot/bot'); // Correcta importación
 const app = express();
 const PORT = 3000;
 
@@ -18,4 +18,3 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Servidor web corriendo en http://localhost:${PORT}`));
-
