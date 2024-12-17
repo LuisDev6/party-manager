@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getVoiceMembers } = require('../bot/bot'); // Correcta importación
+const { getVoiceMembers } = require('./bot/bot'); // Correcta importación
 const app = express();
 const PORT = 3000;
 
