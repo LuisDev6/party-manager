@@ -14,7 +14,7 @@
     <ul id="user-list"></ul>
     <script>
         setInterval(() => {
-            fetch('http://localhost:3000/api/voice-members')
+            fetch('https://party-manager-nu.vercel.app/api/voice-members')
                 .then(response => response.json())
                 .then(data => {
                     const userList = document.getElementById('user-list');
