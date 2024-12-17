@@ -1,15 +1,16 @@
 {
   "name": "partymanager",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Un proyecto para gestionar usuarios conectados en un canal de voz de Discord y mostrarlo en una página web.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "vercel-start": "vercel dev"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["discord", "express", "bot", "vercel", "api"],
+  "author": "Luis",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "discord.js": "^14.16.3",
