@@ -4,11 +4,11 @@ const cors = require('cors'); // Importa cors
 const { getVoiceMembers } = require('./bot/bot');
 const app = express();
 
-// Configurar CORS
+// Configurar CORS para permitir solicitudes desde GitHub Pages
 const corsOptions = {
-    origin: 'https://luisdev6.github.io', // Permite solicitudes desde este dominio
+    origin: 'https://luisdev6.github.io', // Cambia este dominio según sea necesario
 };
-app.use(cors(corsOptions)); // Aplica CORS
+app.use(cors(corsOptions)); // Aplica la configuración de CORS
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
