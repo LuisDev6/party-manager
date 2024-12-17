@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Party Manager</title>
+ </head>
+ <body>
+    <h1>Chaotics Gamer</h1>
+    <h2>Party Manager</h2>
+    
+    <h3>Usuarios Conectados</h3>
+    <ul id="user-list"></ul>
+    <script>
+        setInterval(() => {
+            fetch('http://localhost:3000/api/voice-members')
+                .then(response => response.json())
+                .then(data => {
+                    const userList = document.getElementById('user-list');
+                    userList.innerHTML = ''; // Limpia la lista
+                    data.forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = user;
+                        userList.appendChild(li);
+                    });
+                })
+                .catch(console.error);
+        }, 5000); // Actualiza cada 5 segundos
+    </script>
+    
+ </body>
+ </html>
