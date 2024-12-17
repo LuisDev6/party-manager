@@ -1,9 +1,22 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "web/public/index.html",
-        "use": "@vercel/node"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",  // Apunta a tu archivo de servidor Express
+      "use": "@vercel/node" // Usamos @vercel/node para manejar el servidor de Express
+    },
+    {
+      "src": "public/**/*",  // Archivos estáticos (HTML, CSS, JS) dentro de la carpeta `public`
+      "use": "@vercel/static" // Servir archivos estáticos
+    }
+  ],
+  "env": {
+    "DISCORD_TOKEN": "@discord-token" // Define la variable de entorno desde Vercel, usando el valor de los Secrets de Vercel
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1" // Redirige cualquier solicitud de archivo estático a la carpeta `public`
+    }
+  ]
+}
