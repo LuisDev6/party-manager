@@ -14,23 +14,33 @@
    <ul id="user-list"></ul>
    <script>
        setInterval(() => {
-        //fetch('http://localhost:3000/api/voice-members')
-        fetch('https://party-manager-gilt.vercel.app/api/voice-members')
-
+           fetch('https://party-manager-gilt.vercel.app/api/voice-members')
                .then(response => response.json())
                .then(data => {
                    const userList = document.getElementById('user-list');
                    userList.innerHTML = ''; // Limpia la lista
-                   data.forEach(user => {
-                       const li = document.createElement('li');
-                       li.textContent = user;
-                       userList.appendChild(li);
-                   });
+
+                   if (data.length === 0) {
+                       // Si no hay usuarios conectados, muestra un mensaje
+                       const noUsersMessage = document.createElement('li');
+                       noUsersMessage.textContent = "No hay personas conectadas al chat de voz";
+                       noUsersMessage.style.color = "gray"; // Opcional: estilo visual
+                       userList.appendChild(noUsersMessage);
+                   } else {
+                       // Si hay usuarios, muestra la lista
+                       data.forEach(user => {
+                           const li = document.createElement('li');
+                           li.textContent = user;
+                           userList.appendChild(li);
+                       });
+                   }
                })
-               .catch(console.error);
+               .catch(error => {
+                   console.error("Error al obtener datos del servidor:", error);
+               });
        }, 5000); // Actualiza cada 5 segundos
    </script>
-   
 </body>
 </html>
+
 
