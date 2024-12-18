@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Lista de orígenes permitidos para solicitudes CORS
-const allowedOrigins = ['https://luisdev6.github.io', 'http://127.0.0.1:5500', 'http://localhost:3000'];
+const allowedOrigins = ['https://luisdev6.github.io', 'http://127.0.0.1:5500', 'http://localhost:3000', 'https://party-manager-gilt.vercel.app'];
 
 // Configuración de CORS
 app.use(cors({
