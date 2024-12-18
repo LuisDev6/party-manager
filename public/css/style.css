@@ -6,17 +6,20 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #000000;
     height: 100vh;
+    color: aliceblue;
 }
 
 h1 {
     text-align: center;
     font-size: 3rem;
-    margin-top: 100px;
+    margin-top: 50px;
+    color: chartreuse;
 }
 h2 {
     text-align: center;
+    color: chartreuse;
 }
 
 h3 {
@@ -24,6 +27,7 @@ h3 {
     font-size: 1.5rem;
     margin-top: 50px;
     padding-left: 10px;
+    color: chartreuse;
 }
 
 ul {
