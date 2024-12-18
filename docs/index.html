@@ -15,7 +15,8 @@
    <script>
        setInterval(() => {
         //fetch('http://localhost:3000/api/voice-members')
-        fetch('https://party-manager-nu.vercel.app/api/voice-members') // URL de Vercel
+        //fetch('https://party-manager-nu.vercel.app/api/voice-members')
+        fetch('https://luisdev6.github.io/party-manager//api/voice-members')  // URL de GitHub Pages
                .then(response => response.json())
                .then(data => {
                    const userList = document.getElementById('user-list');
